@@ -65,6 +65,7 @@ export default function Home() {
         </a>
       </footer>
 
+      {/* styled-jsx: ReactコンポーネントないでCSSを書くことができる */}
       <style jsx>{`
         .container {
           min-height: 100vh;
