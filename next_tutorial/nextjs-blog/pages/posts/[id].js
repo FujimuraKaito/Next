@@ -22,12 +22,14 @@ export default function Post({ postData }) {
   )
 }
 
-// 必要
+// 必要→本番環境ではビルド時に実行される
 export async function getStaticPaths() {
   // idとして取りうる値のリストを返す
+  // getAllPostIdsは外部のAPIエンドポイントからデータをフェッチしてきても良い
   const paths = getAllPostIds()
   return {
     paths,
+    // falseにすると404ページに飛ぶ
     fallback: false
   }
 }
