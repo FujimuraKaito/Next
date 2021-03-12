@@ -1,5 +1,6 @@
 // global.cssはimportするだけで良い？
-import '../styles/global.css'
+// import '../styles/global.css'
+import 'tailwindcss/tailwind.css'
 import { AppProps } from 'next/app'
 // import { Component } from 'react'
 

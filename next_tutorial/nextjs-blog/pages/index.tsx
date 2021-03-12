@@ -22,7 +22,8 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        {/* small:~~~ という風に書くとsmallで設定した値よりも画面幅が大きい時に利用される */}
+        <p className="text-center text-red-500 small:text-blue-300 medium:text-yellow-300">[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
