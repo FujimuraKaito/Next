@@ -4,9 +4,18 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
+import { GetStaticProps } from 'next'
 
 // getStaticPropsでreturnした値を受け取る
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData
+}: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
@@ -48,15 +57,28 @@ export default function Home({ allPostsData }) {
  * 
  * ページからのみexportできる
  */ 
-export async function getStaticProps() {
+
+ // TS version
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
-    // propsとしてデータを返す
     props: {
       allPostsData
     }
   }
 }
+
+
+// JS version
+// export async function getStaticProps() {
+//   const allPostsData = getSortedPostsData()
+//   return {
+//     // propsとしてデータを返す
+//     props: {
+//       allPostsData
+//     }
+//   }
+// }
 
 /**
  * SSRでリクエスト時にデータを取得する必要がある場合にはgetServerSidePropsを使う

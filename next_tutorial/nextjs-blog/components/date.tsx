@@ -1,7 +1,7 @@
 import { parseISO, format } from 'date-fns'
-import { de } from 'date-fns/locale'
+// import { parseISO, format } from 'date-fns'
 
-export default function Date({ dateString }) {
+export default function Date({ dateString }: { dateString: string }) {
   const date = parseISO(dateString)
   // returnもHTML要素っぽく
   return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
